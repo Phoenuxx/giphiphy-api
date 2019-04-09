@@ -62,7 +62,7 @@ function ajaxInfo() {
 
             $gifDiv.append($rating);
             $gifDiv.append($gif);
-            $(".gif-display").prepend($gifDiv);
+            $(".gif-display").append($gifDiv);
         }
 
 
@@ -72,10 +72,8 @@ function ajaxInfo() {
 
 // Start/pause gifs
 function animateState() {
-    $(".gif").on("click", function () {
         var motion = $(this).attr("state");
         console.log("gif click");
-
         if (motion == "still") {
             $(this).attr("src", $(this).attr("data-anim"));
             $(this).attr("state", "anim");
@@ -83,7 +81,6 @@ function animateState() {
             $(this).attr("src", $(this).attr("data-still"));
             $(this).attr("state", "still");
         }
-    })
 };
 
 //assigns topic and calls ajax
