@@ -1,5 +1,6 @@
 body {
-    background-image: url("../images/back.jpg");
+    background-color: black;
+    /* background-image: url("../images/back.jpg"); */
     background-size: cover;
     background-repeat: no-repeat;
     font-family: 'Lobster', cursive;

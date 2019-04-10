@@ -1,9 +1,9 @@
 //Variables
 var topics = ["Overwatch", "Super Smash Bros", "Crash Bandicoot", "Final Fantasy", "Spyro"];
-var gifArr = [];
 var gifOffset = 0;
+var gifTotal = 0;
 var topic;
-
+var limit = 10;
 //button generator
 function buttonJenny() {
     $(".jenny-btn").remove();
@@ -26,8 +26,9 @@ $("#topic-btn").on("click", function () {
 
 //pulls more gifs
 function moreGifs() {
-    $(".gif-holder").remove();
+    // $(".gif-holder").remove();
     gifOffset = gifOffset + 10;
+    gifTotal = gifTotal + 10;
     ajaxInfo();
     newGifs();
 }
@@ -35,14 +36,15 @@ function moreGifs() {
 //Create button to get new gifs for same topic
 function newGifs() {
     $("#more-gifs").remove();
-    moreBtn = $("<button>").attr("type", "submit").attr("id", "more-gifs").text("Want different gifs?");
+    moreBtn = $("<button>").attr("type", "submit").attr("id", "more-gifs").text("Want more gifs?");
     $(".more-gif-button").append(moreBtn);
 
 }
 
 //ajax stuffs
 function ajaxInfo() {
-    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + topic + "&api_key=jPkZUFY3ss8kWrABliOlGbLD05ZdDGsU&limit=10" + "&offset=" + gifOffset;
+    
+    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + topic + "&api_key=jPkZUFY3ss8kWrABliOlGbLD05ZdDGsU&limit=" + limit + "&offset=" + gifOffset;
 
     $.ajax({
         url: queryURL,
@@ -50,7 +52,8 @@ function ajaxInfo() {
     }).then(function (response) {
         console.log(response);
         var results = response.data
-        $(".gif-holder").remove();
+        // $(".gif-holder").remove();
+        gifTotal = gifTotal + 10;
         for (i = 0; i < results.length; i++) {
 
             var $gifDiv = $("<div>").addClass("gif-holder");
@@ -65,7 +68,7 @@ function ajaxInfo() {
 
             $gifDiv.append($rating);
             $gifDiv.append($gif);
-            $(".gif-display").append($gifDiv);
+            $(".gif-display").prepend($gifDiv);
         }
         newGifs();
     });

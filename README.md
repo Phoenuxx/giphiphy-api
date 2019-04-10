@@ -1,1 +1,2 @@
 # giphiphy-api
+Basic Gif generator. Don't see the topic you're interested in? Add a new one to the list. Have a topic you want but want more Gifs? Try hitting the "different gifs" button and you'll get new gifs for your perusal.
