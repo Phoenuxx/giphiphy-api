@@ -27,16 +27,13 @@ input {
 .header {
     background-color: rgba(65, 65, 65, 0.76);
     color:rgb(226, 224, 224);
-    padding: 5px 0 15px 0;
+    padding: 5px 0 5px 0;
 }
 
 .gif-holder{
-    /* background-color: grey;
-    border-style: solid;
-    border-width: 5px;
-    border-color: grey; */
+    background-color: rgba(187, 187, 187, 0.651);
     margin: 10px 10px 0 10px;
-    padding: 5px 0 5px 0;
+    padding: 2px 3px 3px 3px;
     float: left;
 }
 
@@ -44,11 +41,12 @@ input {
 .rated {
     padding-bottom: 3px;
     font-size: 24px;
-    color:  white;
+    color:  black;
 }
 
 .gif-display {
     background-color: black;
+    /* width: 1600px; */
 }
 
 #topic-btn {
